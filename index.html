@@ -365,6 +365,18 @@
 
 
   <li class="md-nav__item">
+    <a href="migrations/" title="Migrations" class="md-nav__link">
+      Migrations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="rxjava/" title="RxJava" class="md-nav__link">
       RxJava
     </a>
@@ -389,8 +401,8 @@
 
 
   <li class="md-nav__item">
-    <a href="android_paging/" title="Android Pading" class="md-nav__link">
-      Android Pading
+    <a href="android_paging/" title="Android Paging" class="md-nav__link">
+      Android Paging
     </a>
   </li>
 
@@ -428,6 +440,66 @@
     <a href="gradle/" title="Gradle" class="md-nav__link">
       Gradle
     </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      1.x API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        1.x API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.x/coroutines-extensions/index.html" title="coroutines-extensions" class="md-nav__link">
+      coroutines-extensions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.x/native-driver/index.html" title="native-driver" class="md-nav__link">
+      native-driver
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.x/sqldelight-runtime/index.html" title="sqldelight-runtime" class="md-nav__link">
+      sqldelight-runtime
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -555,7 +627,7 @@
                 <h1 id="sqldelight">SQLDelight</h1>
 <p>SQLDelight generates typesafe APIs from your SQL statements. It compile-time verifies your schema, statements, and migrations and provides IDE features like autocomplete and refactoring which make writing and maintaining SQL simple. SQLDelight currently supports the SQLite dialect and there are supported SQLite drivers on Android, JVM, iOS, and Windows.</p>
 <h2 id="example">Example</h2>
-<p>To use SQLDelight, apply the <a href="gradle">gradle plugin</a> and put your SQL statements in a <code>.sq</code> file in <code>src/main/sqldelight</code>.  Typically the first statement in the SQL file creates a table.</p>
+<p>To use SQLDelight, apply the <a href="/gradle">gradle plugin</a> and put your SQL statements in a <code>.sq</code> file in <code>src/main/sqldelight</code>.  Typically the first statement in the SQL file creates a table.</p>
 <div class="codehilite"><pre><span></span><span class="c1">-- src/main/sqldelight/com/example/sqldelight/hockey/data/Player.sq</span>
 
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">hockeyPlayer</span> <span class="p">(</span>
