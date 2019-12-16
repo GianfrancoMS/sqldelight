@@ -1,0 +1,60 @@
+name: Test pull request
+
+on: [push, pull_request]
+
+jobs:
+  macos-build:
+    runs-on: macOS-latest
+
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v1
+    - uses: actions/cache@v1
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Run emulator tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        script: ./gradlew build iosTest
+  windows-build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v1
+    - name: Set up msys
+      uses: numworks/setup-msys2@v1
+#    - name: Set up msys
+#      uses: crazy-max/ghaction-chocolatey@v1
+#      with:
+#        args: install msys2
+#    - name: List root
+#      run: ls c:\
+#    - name: List libs
+#      run: ls c:\msys64
+    - name: Set up SQLite
+      run: msys2do pacman --noconfirm -S sqlite
+    - name: find it
+      run: find / -name *sqlite*
+#    - run: bash -l -c "pacman ..."
+    - name: List home
+      run: ls $HOME
+    - name: Pacman list
+      run: msys2do pacman -Qk sqlite
+    - name: List libs
+      run: ls c:\msys64\mingw64
+    - name: List libs
+      run: ls c:\msys64\mingw64\lib
+    - name: Run driver tests
+      run: ./gradlew mingwTest
+
+env:
+  GRADLE_OPTS: "-Dorg.gradle.configureondemand=true -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=2 -Dkotlin.incremental=false"
